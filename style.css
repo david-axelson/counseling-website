@@ -473,7 +473,7 @@ footer {
   .hero {
     flex-direction: column;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 140px;
     height: auto;
     min-height: auto;
     padding-bottom: var(--spacing-xl);
