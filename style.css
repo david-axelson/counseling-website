@@ -307,6 +307,10 @@ nav {
   box-shadow: 20px 20px 0 var(--color-primary);
 }
 
+.about-cta {
+  margin-top: var(--spacing-md);
+}
+
 /* Services Section */
 .services {
   padding: var(--spacing-2xl) 0;
@@ -549,11 +553,19 @@ footer {
   }
 
   .about-content p,
-  .about-content br {
+  .about-content br,
+  .about-cta {
     order: 3;
-    /* Text THIRD */
+    /* Text and CTA THIRD */
     text-align: left;
     /* Keep text readable */
+  }
+
+  .about-cta {
+    display: block;
+    width: fit-content;
+    margin: var(--spacing-md) auto 0;
+    text-align: center;
   }
 
   .contact-grid {
