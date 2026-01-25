@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" preserveAspectRatio="xMidYMid meet">
+  <g transform="translate(0, 5)">
+    <!-- Main Oak Leaf/Tree -->
+    <path d="M25,50 C25,50 10,40 10,25 C10,10 25,0 25,0 C25,0 40,10 40,25 C40,40 25,50 25,50 Z M25,50 L25,35 M25,45 L15,35 M25,40 L35,30" stroke="#AF8C70" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Second Oak Leaf/Tree -->
+    <path d="M45,45 C45,45 35,38 35,28 C35,18 45,12 45,12 C45,12 55,18 55,28 C55,38 45,45 45,45 Z M45,45 L45,35 M45,42 L38,36 M45,39 L52,33" stroke="#AF8C70" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
