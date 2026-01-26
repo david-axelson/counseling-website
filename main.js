@@ -10,3 +10,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+// FAQ Accordion
+document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const isExpanded = question.getAttribute('aria-expanded') === 'true';
+            const answer = question.nextElementSibling;
+
+            // Toggle current item
+            question.setAttribute('aria-expanded', !isExpanded);
+            answer.classList.toggle('active');
+        });
+    });
+});
