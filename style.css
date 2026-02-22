@@ -262,18 +262,22 @@ nav {
   flex: 1;
   padding-right: var(--spacing-xl);
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-md);
 }
 
 .hero h1 {
   font-size: 3.5rem;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: 0;
   line-height: 1.1;
 }
 
 .hero-intro {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: var(--color-text-light);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 0;
 }
 
 .hero-features-text {
@@ -282,7 +286,8 @@ nav {
   align-items: center;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-xl);
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
 }
 
 .feature-text {
@@ -628,6 +633,8 @@ footer {
     padding-right: 0;
     margin-bottom: var(--spacing-lg);
     width: 100%;
+    align-items: center;
+    text-align: center;
   }
 
   .hero h1 {
@@ -635,7 +642,7 @@ footer {
   }
 
   .hero p {
-    margin: 0 auto var(--spacing-lg);
+    margin: 0;
   }
 
   .hero-features-text {
