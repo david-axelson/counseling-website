@@ -631,7 +631,7 @@ footer {
   }
 
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .hero p {
@@ -640,6 +640,10 @@ footer {
 
   .hero-features-text {
     justify-content: center;
+  }
+
+  .hero-features-text .feature-separator:last-of-type {
+    display: none;
   }
 
   .hero-image {
