@@ -78,8 +78,9 @@ h6 {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: var(--color-primary);
   color: inherit;
+  font-weight: 600;
   transition: color 0.3s ease;
 }
 
