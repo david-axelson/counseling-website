@@ -356,57 +356,128 @@ nav {
   margin-bottom: var(--spacing-sm);
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-lg);
+.services-container {
+  display: flex;
+  gap: var(--spacing-xl);
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.service-card {
-  padding: var(--spacing-lg);
-  background-color: var(--color-bg);
-  border-radius: var(--radius-md);
-  text-align: center;
-  transition: transform 0.3s ease;
-  /* Flex layout for bottom alignment */
+.services-sidebar {
+  flex: 0 0 300px;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  gap: var(--spacing-sm);
 }
 
-.service-card:hover {
-  transform: translateY(-5px);
-}
-
-.service-card h3 {
-  margin-bottom: var(--spacing-sm);
-  color: var(--color-secondary);
-}
-
-.service-price {
-  /* Push to bottom */
-  margin-top: auto;
-  padding-top: var(--spacing-md);
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+.service-tab {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-md);
+  text-align: left;
   font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-tab:hover {
   color: var(--color-primary-dark);
+  background-color: rgba(140, 169, 139, 0.05);
 }
 
-.price-amount {
-  font-weight: 700;
+.service-tab.active {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.services-content {
+  flex: 1;
+  position: relative;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.service-detail {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.service-detail.active {
+  display: block;
+}
+
+.service-detail h3 {
+  font-size: 2rem;
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-md);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: var(--spacing-sm);
+}
+
+.service-detail p {
   font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
 }
 
-.price-label {
-  font-size: 0.9rem;
-  color: var(--color-text-light);
-  font-family: var(--font-body);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.price-divider {
-  margin: 0 var(--spacing-sm);
-  color: var(--color-text-light);
-  opacity: 0.5;
+@media (max-width: 768px) {
+  .services-container {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .services-sidebar {
+    display: none;
+  }
+
+  .services-content {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    /* Clear margin between services */
+    background-color: transparent;
+    /* Let them sit on the section background or keep surface? */
+    box-shadow: none;
+  }
+
+  .service-detail {
+    display: block !important;
+    animation: none;
+    opacity: 1;
+    transform: none;
+    background-color: var(--color-bg);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .service-detail h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+  }
 }
 
 

@@ -148,18 +148,31 @@
           <h2>Services</h2>
           <p>Specialized care for your mental health journey.</p>
         </div>
-        <div class="services-grid">
-          <div class="service-card">
-            <h3>Individual Therapy</h3>
-            <p>One-on-one sessions to address anxiety, depression, and life transitions.</p>
+        <div class="services-container">
+          <div class="services-sidebar">
+            <button class="service-tab active" data-target="service-individual">Individual Therapy</button>
+            <button class="service-tab" data-target="service-couples">Couples Counseling</button>
+            <button class="service-tab" data-target="service-group">Group Therapy</button>
           </div>
-          <div class="service-card">
-            <h3>Couples Counseling</h3>
-            <p>Strengthening relationships through improved communication and understanding.</p>
-          </div>
-          <div class="service-card">
-            <h3>Group Therapy</h3>
-            <p>Healing from past experiences in a safe, structured environment.</p>
+          <div class="services-content">
+            <div id="service-individual" class="service-detail active">
+              <h3>Individual Therapy</h3>
+              <p>Helping individuals navigate anxiety, attachment wounds, past trauma, and life transitions. Together,
+                we explore how previous experiences shape current patterns and build practical tools to feel more
+                secure, connected, and empowered.</p>
+            </div>
+            <div id="service-couples" class="service-detail">
+              <h3>Couples Counseling</h3>
+              <p>Helping couples who are experiencing conflict, disconnection, or simply wanting to strengthen their
+                relationship. In an effort to build deeper understanding and connection, we explore how life
+                experiences, past trauma, and family of origin shape patterns in their relationship.</p>
+            </div>
+            <div id="service-group" class="service-detail">
+              <h3>Group Therapy</h3>
+              <p>Group therapy offers a safe space to connect, discover you’re not alone, and grow alongside others on
+                similar journeys. You will explore patterns and build healthier ways of relating beyond what’s possible
+                in individual counseling.</p>
+            </div>
           </div>
         </div>
       </div>

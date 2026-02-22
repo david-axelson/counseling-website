@@ -79,3 +79,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Services Auto-Cycling
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.service-tab');
+    const details = document.querySelectorAll('.service-detail');
+    let cycleInterval;
+    let currentIndex = 0;
+
+    const activateTab = (index) => {
+        tabs.forEach(tab => tab.classList.remove('active'));
+        details.forEach(detail => detail.classList.remove('active'));
+
+        tabs[index].classList.add('active');
+        details[index].classList.add('active');
+        currentIndex = index;
+    };
+
+    const startCycle = () => {
+        cycleInterval = setInterval(() => {
+            let nextIndex = (currentIndex + 1) % tabs.length;
+            activateTab(nextIndex);
+        }, 5000); // 5 seconds
+    };
+
+    const stopCycle = () => {
+        clearInterval(cycleInterval);
+    };
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+            stopCycle(); // Stop auto-cycle when manually clicked
+            activateTab(index);
+        });
+    });
+
+    if (tabs.length > 0 && window.innerWidth > 768) {
+        startCycle();
+    }
+});
