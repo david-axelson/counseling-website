@@ -642,7 +642,7 @@ footer {
     justify-content: center;
   }
 
-  .hero-features-text .feature-separator:last-of-type {
+  .hero-features-text .feature-separator:nth-child(4) {
     display: none;
   }
 
