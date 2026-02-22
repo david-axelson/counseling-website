@@ -340,6 +340,14 @@ nav {
   margin-top: var(--spacing-md);
 }
 
+.about-content p {
+  margin-bottom: var(--spacing-md);
+}
+
+.about-content p:last-of-type {
+  margin-bottom: var(--spacing-lg);
+}
+
 /* Services Section */
 .services {
   padding: var(--spacing-2xl) 0;
