@@ -467,6 +467,9 @@
           <div class="contact-form-container" style="background: var(--color-bg); padding: 2rem; border-radius: 8px;">
             <h3>Send a Message</h3>
             <form id="contact-form" style="margin-top: 1rem;">
+              <!-- Honeypot: hidden from real users, bots fill it in -->
+              <input type="text" name="website" tabindex="-1" aria-hidden="true" autocomplete="off"
+                style="position:absolute;left:-9999px;height:0;width:0;overflow:hidden;">
               <div class="form-group">
                 <input type="text" id="name" name="name" placeholder="Name" required
                   style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px; font-family: inherit;">

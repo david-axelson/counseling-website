@@ -20,41 +20,59 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            // Show loading state
+            // Honeypot: real users leave this blank; bots fill it in
+            if (contactForm.elements['website'].value) {
+                contactForm.reset();
+                formStatus.style.display = 'block';
+                formStatus.textContent = 'Thank you! Your message has been sent.';
+                formStatus.style.color = 'green';
+                return;
+            }
+
+            const name = contactForm.elements['name'].value;
+            const mobile = contactForm.elements['mobile'].value;
+            const message = contactForm.elements['message'].value;
+
+            if (name.length > 100 || mobile.length > 20 || message.length > 2000) {
+                formStatus.style.display = 'block';
+                formStatus.textContent = 'One or more fields is too long. Please shorten your entry and try again.';
+                formStatus.style.color = 'red';
+                return;
+            }
+
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.textContent;
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
-
             formStatus.style.display = 'block';
             formStatus.textContent = 'Processing...';
             formStatus.style.color = 'var(--color-primary-dark)';
 
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
-
             try {
-                // IMPORTANT: Replace this URL with your deployed Google Apps Script Web App URL
                 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbym4Q4Va--GY58D2-Gl8NPkVzwlLT4iivZOiR-aH31gAmYjs7sjGxV9mEBywsvgDVtWRw/exec';
 
+                // text/plain avoids a CORS preflight that Apps Script can't handle,
+                // while still letting us read the response (unlike no-cors)
                 const response = await fetch(SCRIPT_URL, {
                     method: 'POST',
-                    mode: 'no-cors', // Google Apps Script requires no-cors for simple POST
+                    mode: 'cors',
                     cache: 'no-cache',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({ name, mobile, message, formSecret: 'doubleoak-2026-intake' }),
                 });
 
-                // Since we use 'no-cors', we won't get a proper response object back,
-                // but if the fetch doesn't throw, it likely succeeded.
+                const text = await response.text();
                 contactForm.reset();
-                formStatus.textContent = 'Thank you! Your message has been sent.';
-                formStatus.style.color = 'green';
+                if (text.startsWith('Success')) {
+                    formStatus.textContent = 'Thank you! Your message has been sent.';
+                    formStatus.style.color = 'green';
+                } else {
+                    formStatus.textContent = 'Something went wrong. Please call or text (469) 708-9186 to reach Twyla directly.';
+                    formStatus.style.color = 'red';
+                }
             } catch (error) {
                 console.error('Error:', error);
-                formStatus.textContent = 'Oops! There was an error sending your message. Please try again.';
+                formStatus.textContent = 'Something went wrong. Please call or text (469) 708-9186 to reach Twyla directly.';
                 formStatus.style.color = 'red';
             } finally {
                 submitBtn.disabled = false;
