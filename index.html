@@ -29,36 +29,112 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Double Oak Counseling",
-      "image": "https://www.doubleoakcounseling.com/assets/DoubleOakLogo.svg",
-      "url": "https://www.doubleoakcounseling.com/",
-      "telephone": "(555) 123-4567",
-      "email": "twyla@doubleoakcounseling.com",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "2413 Fort Worth Dr",
-        "addressLocality": "Denton",
-        "addressRegion": "TX",
-        "postalCode": "76205",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 33.0726,
-        "longitude": -97.0588
-      },
-      "areaServed": [
-        "Denton, TX",
-        "Highland Village, TX",
-        "North Dallas, TX"
-      ],
-      "founder": {
-        "@type": "Person",
-        "name": "Twyla Axelson"
-      },
-      "description": "Compassionate, professional counseling services in Denton, TX."
+      "@graph": [
+        {
+          "@type": ["MedicalBusiness", "ProfessionalService"],
+          "@id": "https://www.doubleoakcounseling.com/#practice",
+          "name": "Double Oak Counseling",
+          "url": "https://www.doubleoakcounseling.com/",
+          "telephone": "(469) 708-9186",
+          "email": "twyla@doubleoakcounseling.com",
+          "image": "https://www.doubleoakcounseling.com/assets/DoubleOakLogo.svg",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "2413 Fort Worth Dr, Suite 100",
+            "addressLocality": "Denton",
+            "addressRegion": "TX",
+            "postalCode": "76205",
+            "addressCountry": "US"
+          },
+          "areaServed": [
+            "Denton, TX",
+            "Highland Village, TX",
+            "Lake Lewisville, TX"
+          ],
+          "description": "Compassionate, professional counseling services in Denton, TX. Twyla Axelson, LPC provides individual, couples, and group therapy specializing in trauma, anxiety, and relationship issues.",
+          "employee": { "@id": "https://www.doubleoakcounseling.com/#twyla" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://www.doubleoakcounseling.com/#twyla",
+          "name": "Twyla Axelson",
+          "jobTitle": "Licensed Professional Counselor",
+          "worksFor": { "@id": "https://www.doubleoakcounseling.com/#practice" },
+          "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "license",
+            "name": "Licensed Professional Counselor (LPC)",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Texas Behavioral Health Executive Council"
+            }
+          },
+          "sameAs": "https://www.zocdoc.com/professional/twyla-axelson-lpc-associate-456575"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.doubleoakcounseling.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What ages do you work with?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "I primarily work with adults and couples. I am also trained in working with children and teens and provide thoughtful and developmentally appropriate therapy for ages 4 and up when it makes clinical sense — particularly as part of a larger family system approach."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is your pricing?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The standard fee for individual and couples therapy sessions is $185 per session. Each session is typically 50-60 minutes in length. Costs for group therapy sessions are generally $75 per 90 minute session. I understand that financial circumstances vary, and I believe everyone deserves access to quality mental health care. In cases of financial need, I offer some flexibility with my fees. Please don't hesitate to discuss your situation with me during our initial consultation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you accept insurance?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "I do not accept insurance directly or bill insurance companies on your behalf. However, many clients are able to receive reimbursement for out-of-network mental health services through their insurance plans. I am happy to provide you with a detailed receipt (superbill) that includes all the necessary information for you to submit to your insurance company for potential reimbursement. I recommend contacting your insurance provider to verify your out-of-network mental health benefits before our first session. Alternatively, I partner with Mentaya, a third-party organization which allows me to check your out-of-network benefits. Many clients have achievable out-of-network deductibles and are able to be reimbursed for a percentage of their session fee once those are met."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if my partner is hesitant about couples therapy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "That's common. Often one partner is more motivated than the other — or one feels unsure about what therapy will be like. Couples therapy with me isn't about taking sides or assigning blame. It's about identifying patterns that both of you are caught in and learning how to shift them. If your partner isn't ready, you don't have to wait to begin. Working on your own patterns, triggers, and responses can meaningfully change the dynamic of a relationship. When one person begins responding differently, the system often shifts. If your partner is skeptical, I'm happy to answer questions ahead of time so they know what to expect. Many hesitant partners find that the process feels more structured and practical than they imagined."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you offer in-person or virtual sessions?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. I offer in-person sessions in North Denton County as well as secure virtual sessions for clients located in Texas. We can decide together which format best fits your schedule and comfort level."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What can I expect in the first session?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The first session is a conversation, not an interrogation. We'll talk about what's bringing you in, what feels stuck, and what you'd like to see change. I'll ask intentional questions, but there's no pressure to have everything perfectly explained. Early on, my job is to listen carefully and begin putting the pieces together — understanding your history, patterns, and what matters most — so we have something solid to build on."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does therapy take?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There isn't a one-size-fits-all answer. Some clients come in with a specific goal and work toward it over a shorter period of time. Others choose to stay longer to address deeper patterns or long-standing dynamics. We'll regularly revisit your goals and adjust as needed. Therapy is collaborative — the pace and depth are guided by what's most useful for you."
+              }
+            }
+          ]
+        }
+      ]
     }
   </script>
   <!-- Google Fonts -->
@@ -467,6 +543,9 @@
           <div class="contact-form-container" style="background: var(--color-bg); padding: 2rem; border-radius: 8px;">
             <h3>Send a Message</h3>
             <form id="contact-form" style="margin-top: 1rem;">
+              <!-- Honeypot: hidden from real users, bots fill it in -->
+              <input type="text" name="website" tabindex="-1" aria-hidden="true" autocomplete="off"
+                style="position:absolute;left:-9999px;height:0;width:0;overflow:hidden;">
               <div class="form-group">
                 <input type="text" id="name" name="name" placeholder="Name" required
                   style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px; font-family: inherit;">
